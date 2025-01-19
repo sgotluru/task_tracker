@@ -47,16 +47,17 @@ tasktkr -h
 To add a task with the title `Buy groceries`:
 ```bash
 tasktkr add "Buy groceries"
-Task 'Buy groceries' added successfully with ID: 1
+Data successfully written to file: ~/.taskmanager/tasks.yaml.
+Task 'Talk to your best-friend' added successfully with ID: 5
 ```
 
 #### List Tasks
 To view tasks filtered by status:
 ```bash
 tasktkr list --status todo  # List tasks with the status "todo"
-ID: 1, Title: Buy groceries, Status: todo
+ID: 1, Title: Buy groceries, Status: todo, Created: 1947-08-15 00:00:00, Updated: 1947-08-15 00:00:00
 tasktkr list --status all   # List all tasks
-ID: 1, Title: Buy groceries, Status: todo
+ID: 1, Title: Buy groceries, Status: todo, Created: 1947-08-15 00:00:00, Updated: 1947-08-15 00:00:00
 ```
 
 
@@ -64,13 +65,19 @@ ID: 1, Title: Buy groceries, Status: todo
 To update a task's title or status by ID:
 ```bash
 tasktkr update 1 --title "Buy fresh groceries"
+Data successfully written to file: ~/.taskmanager/tasks.yaml.
+Task ID 1 updated successfully.
 tasktkr update 1 --status done
+Data successfully written to file: ~/.taskmanager/tasks.yaml.
+Task ID 1 updated successfully.
 ```
 
 #### Delete a Task
 To delete a task by ID:
 ```bash
 tasktkr delete 1
+Data successfully written to file: ~/.taskmanager/tasks.yaml.
+Task ID 1 deleted successfully.
 ```
 
 ## File Storage

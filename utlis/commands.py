@@ -62,8 +62,8 @@ def list_status(args):
 
     # Display each task with formatted timestamps
     for task in filtered_tasks:
-        created_at = datetime.fromisoformat(task["createdAt"]).strftime("%Y-%m-%d %H:%M:%S")
-        updated_at = datetime.fromisoformat(task["updatedAt"]).strftime("%Y-%m-%d %H:%M:%S")
+        created_at = datetime.fromisoformat(task["createdAt"]).strftime("%Y-%m-%d %I:%M %p")
+        updated_at = datetime.fromisoformat(task["updatedAt"]).strftime("%Y-%m-%d %I:%M %p")
         print(
             f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, "
             f"Created: {created_at}, Updated: {updated_at}"
