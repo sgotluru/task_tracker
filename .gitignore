@@ -214,4 +214,11 @@ pyrightconfig.json
 LICENSE
 LICENSE.*
 
+# Ignore user-specific configuration
+~/.taskmanager/
+
+# Ignore config files
+*.config
+
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,python

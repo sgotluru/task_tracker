@@ -1,0 +1,7 @@
+# All the versions are recommended as development started with these versions
+pytest>=7.0.0  # For running tests (optional, required for running tests)
+click>=8.0.0   # For building enhanced CLI commands (optional, required for building CLI commands)
+setuptools>=75.8.0  # For building the package (required for building the package)
+pip>=24.3.1  # For installing dependencies (required for installing dependencies)
+pyyaml>=6.0.2 # For parsing YAML files (required for parsing YAML files)
+# freeze requirements with `pip freeze > requirements.txt`
