@@ -29,7 +29,7 @@ def get_parsed_arguments():
     # List command
     parser_list = subparsers.add_parser("list", help="List tasks")
     parser_list.add_argument(
-        "status",
+        "--status",
         nargs="?",
         default="all",
         choices=["all", "todo", "in-progress", "done"],
