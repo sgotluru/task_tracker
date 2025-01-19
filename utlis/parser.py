@@ -50,5 +50,10 @@ def get_parsed_arguments():
                 "in-progress - Show tasks with status 'in-progress'\n"
                 "done - Show tasks with status 'done'",
     )
+    
+    # Config command
+    parser_config = subparsers.add_parser("config", help="Update configuration settings")
+    parser_config.add_argument("--tasks-file", help="Path to the tasks.json file")
+
 
     return parser.parse_args()

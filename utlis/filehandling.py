@@ -1,44 +1,40 @@
 import json
+from .config import get_task_file_path
 
-def initialize_json_file(path, initial_data=None):
-    if initial_data is None:
-        initial_data = []
+def initialize_json_file():
+    path = get_task_file_path()
+    if not path:
+        return
+    if not path.parent.exists():
+        path.parent.mkdir(parents=True)
+    if not path.exists():
+        with path.open("w") as file:
+            json.dump([], file)
+        print(f"Created JSON file at: {path}.")
+
+
+def read_json_file():
+    path = get_task_file_path()
+    if not path:
+        return []
     try:
-        with open(path, 'w') as file:
-            json.dump(initial_data, file, indent=4)
-        print(f"Created file '{path}' with initial data: {initial_data}")
-    except IOError as e:
-        print(f"Failed to create file '{path}': {e}")
-    except Exception as e:
-        print(f"Unexpected error creating file '{path}': {e}")
-
-
-def read_json_file(path):
-    try:
-        with open(path, 'r') as file:
-            data = json.load(file)
-        print(f"Data read successfully from '{path}'.")
-        return data
+        with path.open("r", encoding="utf-8") as file:
+            return json.load(file)
     except FileNotFoundError:
         print(f"File '{path}' not found.")
-        return None
-    except json.JSONDecodeError:
-        print(f"File '{path}' is not valid JSON.")
-        return None
+        return []
+    except json.JSONDecodeError as e:
+        print(f"Error decoding JSON from file '{path}': {e}")
+        return []
     except IOError as e:
         print(f"Error reading file '{path}': {e}")
-        return None
+        return []
     except Exception as e:
-        print(f"Unexpected error while reading the file '{path}': {e}")
-        return None
+        print(f"Unexpected error while reading file '{path}': {e}")
+        return []
 
 
 def write_json_file(path, data):
-    try:
-        with open(path, 'w') as file:
-            json.dump(data, file, indent=4)
-        print(f"Data written successfully to '{path}'.")
-    except IOError as e:
-        print(f"Error writing to file '{path}': {e}")
-    except Exception as e:
-        print(f"Unexpected error while writing file '{path}': {e}")
+    path = get_task_file_path()
+    with path.open("w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
