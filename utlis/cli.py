@@ -12,7 +12,6 @@ def main():
         
     try:
         args = get_parsed_arguments()
-
         if args.command == "add":
             add(args)
         elif args.command == "update":
@@ -26,6 +25,8 @@ def main():
         elif args.command == "list":
             list_status(args)
         else:
-            print("Invalid command. Use --help for usage information.")
+            valid_commands = ["add", "update", "delete", "mark-in-progress", "mark-done", "list"]
+            print(f"Invalid command. Use one of: {', '.join(valid_commands)}. Use 'tasktkr -h' for help.")
+            
     except Exception as e:
         print(f"An error occurred: {e}")
