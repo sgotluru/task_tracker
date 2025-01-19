@@ -30,6 +30,9 @@ def main():
             if args.tasks_file:
                 update_config("settings", "task_file", args.tasks_file)
                 print(f"Updated tasks file path to: {args.tasks_file}")
+            elif args.show:
+                config = read_config()
+                print(yaml.dump(config, default_flow_style=False))
             else:
                 print("No settings provided to update.")
         else:
