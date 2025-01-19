@@ -1,16 +1,14 @@
 from .parser import get_parsed_arguments
 from .commands import add, update, delete, list_status
 from .filehandling import initialize_json_file
-from .config import update_config
-# from pathlib import Path
+from .config import update_config, read_config
+import yaml
+
 import os
 
-# FILE_PATH = "tasks.json"
-# # FILE_PATH = Path.home() / ".taskmanager" / "tasks.json"
-
 def main():
-    # if not os.path.exists(FILE_PATH):
-    #     initialize_json_file(FILE_PATH)
+    if not os.path.exists():
+        initialize_json_file()
         
     try:
         args = get_parsed_arguments()

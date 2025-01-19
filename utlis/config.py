@@ -50,3 +50,15 @@ def get_task_file_path():
     except Exception as e:
         print(f"An error occurred while reading the config file: {e}")
         return None
+    
+def read_config():
+    try:
+        with open("config.yaml", "r") as file:
+            config = yaml.safe_load(file)
+        return config
+    except FileNotFoundError:
+        print("Configuration file not found.")
+        return {}
+    except yaml.YAMLError as e:
+        print(f"Error reading configuration file: {e}")
+        return {}
