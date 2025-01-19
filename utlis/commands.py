@@ -1,5 +1,6 @@
 from datetime import datetime
 from .filehandling import read_json_file, write_json_file
+from tabulate import tabulate
 
 def add(args):
     tasks = read_json_file()
@@ -55,16 +56,15 @@ def list_status(args):
     else:
         filtered_tasks = tasks
 
-    # Check if there are any tasks to display
     if not filtered_tasks:
         print(f"No tasks found with status: {args.status}")
         return
-
-    # Display each task with formatted timestamps
+    
+    table_data = []
     for task in filtered_tasks:
         created_at = datetime.fromisoformat(task["createdAt"]).strftime("%Y-%m-%d %I:%M %p")
         updated_at = datetime.fromisoformat(task["updatedAt"]).strftime("%Y-%m-%d %I:%M %p")
-        print(
-            f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, "
-            f"Created: {created_at}, Updated: {updated_at}"
-        )
+        table_data.append([task["id"], task["title"], task["status"], created_at, updated_at])
+        
+    headers = ["ID", "Title", "Status", "Created At", "Updated At"]
+    print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))
