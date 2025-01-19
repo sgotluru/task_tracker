@@ -2,7 +2,7 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python: 3.6+](https://img.shields.io/badge/Python-3.6%2B-blue)
-![Build Status](https://img.shields.io/github/workflow/status/sgotluru/task_tracker/CI)
+![Build Status](https://img.shields.io/github/actions/workflow/status/sgotluru/task_tracker/ci.yml?branch=main)
 ![GitHub Stars](https://img.shields.io/github/stars/sgotluru/task_tracker?style=social)
 
 A simple and intuitive command-line task manager to manage your to-dos effectively.
