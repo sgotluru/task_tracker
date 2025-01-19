@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+with open("README.md", "r", encoding="utf-8") as file:
+    long_description = file.read()
 
 setuptools.setup(
     name="taskmanager",                
-    version="25.01.01",                   
+    version="1.0.0",                   
     author="Sreekara Gotluru",
     description="A simple CLI Task Manager",
     long_description=long_description,
@@ -24,6 +24,9 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",  
         "Operating System :: OS Independent",
     ],
-    install_requires=[],
+    install_requires=[
+        "PyYAML>=6.0",
+        ],
     include_package_data=True,
+    license="MIT",
 )
