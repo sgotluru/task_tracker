@@ -1,11 +1,11 @@
 from .parser import get_parsed_arguments
 from .commands import add, update, delete, list_status
 from .filehandling import initialize_json_file
-from pathlib import Path
+# from pathlib import Path
 import os
 
 FILE_PATH = "tasks.json"
-FILE_PATH = Path.home() / ".taskmanager" / "tasks.json"
+# FILE_PATH = Path.home() / ".taskmanager" / "tasks.json"
 
 def main():
     if not os.path.exists(FILE_PATH):

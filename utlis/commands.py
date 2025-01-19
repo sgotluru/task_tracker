@@ -3,7 +3,7 @@ from pathlib import Path
 from .filehandling import read_json_file, write_json_file
 
 FILE_PATH = "tasks.json"
-FILE_PATH = Path.home() / ".taskmanager" / "tasks.json"
+# FILE_PATH = Path.home() / ".taskmanager" / "tasks.json"
 
 def add(args):
     tasks = read_json_file(FILE_PATH)

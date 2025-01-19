@@ -1,5 +1,8 @@
 # Task Manager CLI
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python: 3.6+](https://img.shields.io/badge/Python-3.6%2B-blue)
+
 A simple and intuitive command-line task manager to manage your to-dos effectively.
 
 ## Features
@@ -25,7 +28,7 @@ A simple and intuitive command-line task manager to manage your to-dos effective
     This will install `tasktkr` command globally in your environment.
 
 ## Usage
-After installation, you can sue the `tasktkr` command to manage your tasks.
+After installation, you can use the `tasktkr` command to manage your tasks.
 
 ### Command-line Options
 To see all available commands and usage instructions, run:
@@ -33,6 +36,12 @@ To see all available commands and usage instructions, run:
 tasktkr -h
 ```
 ### Examples
+#### Help Command
+To see all available commands and options, run:
+```bash
+tasktkr -h
+```
+
 #### Add a New Task
 To add a task with the title `Buy groceries`:
 ```bash
@@ -51,7 +60,6 @@ To update a task's title or status by ID:
 ```bash
 tasktkr update 1 --title "Buy fresh groceries"
 tasktkr update 1 --status done
-
 ```
 
 #### Delete a Task

@@ -210,4 +210,8 @@ pyrightconfig.json
 # Ignore JSON files
 *.json
 
+# License files
+LICENSE
+LICENSE.*
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,python
