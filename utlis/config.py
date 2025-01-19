@@ -5,7 +5,7 @@ CONFIG_PATH = Path.home() / ".taskmanager" / "config.yaml"
 
 DEFAULT_CONFIG = {
     "settings": {
-        "task_file": Path.home() / ".taskmanager" / "tasks.yaml",
+        "task_file": str(Path.home() / ".taskmanager" / "tasks.yaml"),
         "editor": "vim",
         "date_format": "%Y-%m-%d",
         "time_format": "%H:%M",

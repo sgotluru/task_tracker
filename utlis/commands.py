@@ -63,7 +63,9 @@ def list_status(args):
         print(f"No tasks found with status: {args.status}")
     else:
         for task in tasks:
-            print(
+            created_at = datetime.fromisoformat(task["createdAt"]).strftime("%Y-%m-%d %H:%M:%S")
+        updated_at = datetime.fromisoformat(task["updatedAt"]).strftime("%Y-%m-%d %H:%M:%S")
+        print(
             f"ID: {task['id']}, Title: {task['title']}, Status: {task['status']}, "
-            f"Created: {task['createdAt']}, Updated: {task['updatedAt']}"
+            f"Created: {created_at}, Updated: {updated_at}"
         )

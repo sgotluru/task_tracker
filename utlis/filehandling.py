@@ -38,7 +38,7 @@ def read_json_file():
         return []
 
 
-def write_json_file(path, data):
+def write_json_file(data):
     path = get_task_file_path()
     if not path:
         print("Task file path is not configured.")
