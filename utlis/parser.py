@@ -3,17 +3,7 @@ import argparse
 def get_parsed_arguments():
     """Set up and return argument parser for the CLI."""
     parser = argparse.ArgumentParser(
-        description="Simple CLI Task Manager\n\n"
-                    "Examples:\n"
-                    "tasktkr add \"Buy groceries\"\n"
-                    "tasktkr update 1 --title \"Buy milk\"\n"
-                    "tasktkr mark-in-progress 1\n"
-                    "tasktkr mark-done 1\n"
-                    "tasktkr delete 1\n"
-                    "tasktkr list\n"
-                    "tasktkr list todo\n"
-                    "tasktkr list in-progress\n"
-                    "tasktkr list done",
+        description="Simple CLI Task Manager. Run 'tasktkr <command> -h' for command-specific help.",
         formatter_class=argparse.RawTextHelpFormatter,
         )
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -44,16 +34,18 @@ def get_parsed_arguments():
         default="all",
         choices=["all", "todo", "in-progress", "done"],
         metavar="STATUS",
-        help="Filter tasks by status (default: all)\n"
-                "all - Show all tasks\n"
-                "todo - Show tasks with status 'todo'\n"
-                "in-progress - Show tasks with status 'in-progress'\n"
-                "done - Show tasks with status 'done'",
+        help="Filter tasks by status (default: all):\n"
+     "  all          Show all tasks\n"
+     "  todo         Show tasks with status 'todo'\n"
+     "  in-progress  Show tasks with status 'in-progress'\n"
+     "  done         Show tasks with status 'done'",
     )
     
     # Config command
     parser_config = subparsers.add_parser("config", help="Update configuration settings")
-    parser_config.add_argument("--tasks-file", help="Path to the tasks.json file")
-
+    parser_config.add_argument("--task-file", help="Path to the tasks.json file")
+    parser_config.add_argument("--editor", help="Default editor for task descriptions (e.g., vim)")
+    parser_config.add_argument("--date-format", help="Default date format (e.g., %Y-%m-%d)")
+    parser_config.add_argument("--time-format", help="Default time format (e.g., %H:%M)")
 
     return parser.parse_args()
