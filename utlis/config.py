@@ -23,11 +23,26 @@ def initialize_config_file():
             print(f"Created config file at: {CONFIG_PATH} with default settings.")
     except Exception as e:
         print(f"An error occurred while initializing the config file: {e}")
+
+def read_config():
+    try:
+        if not CONFIG_PATH.exists():
+            initialize_config_file()
+            
+        with CONFIG_PATH.open("r", encoding="utf-8") as file:
+            config = yaml.safe_load(file)
+        return config
+    except FileNotFoundError:
+        print("Configuration file not found. Initializing with default settings.")
+        initialize_config_file()
+        return DEFAULT_CONFIG
+    except yaml.YAMLError as e:
+        print(f"Error reading configuration file: {e}. Using default settings.")
+        return DEFAULT_CONFIG
         
 def update_config(section, key, value):
     try:
-        with CONFIG_PATH.open("r", encoding="utf-8") as file:
-            config = yaml.safe_load(file)
+        config = read_config()
         
         if section not in config:
             config[section] = {}
@@ -43,22 +58,12 @@ def update_config(section, key, value):
         
 def get_task_file_path():
     try:
-        with CONFIG_PATH.open("r", encoding="utf-8") as file:
-            config = yaml.safe_load(file)
-        
+        config = read_config()
+        return Path(config["settings"]["task_file"])
+    except KeyError:
+        print("Error: 'task_file' setting not found in config file.")
         return Path(config["settings"]["task_file"])
     except Exception as e:
         print(f"An error occurred while reading the config file: {e}")
-        return None
+        return Path(DEFAULT_CONFIG["settings"]["task_file"])
     
-def read_config():
-    try:
-        with open("config.yaml", "r") as file:
-            config = yaml.safe_load(file)
-        return config
-    except FileNotFoundError:
-        print("Configuration file not found.")
-        return {}
-    except yaml.YAMLError as e:
-        print(f"Error reading configuration file: {e}")
-        return {}
