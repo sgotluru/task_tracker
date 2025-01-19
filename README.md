@@ -2,6 +2,8 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Python: 3.6+](https://img.shields.io/badge/Python-3.6%2B-blue)
+![Build Status](https://img.shields.io/github/workflow/status/sgotluru/task_tracker/CI)
+![GitHub Stars](https://img.shields.io/github/stars/sgotluru/task_tracker?style=social)
 
 A simple and intuitive command-line task manager to manage your to-dos effectively.
 
@@ -21,7 +23,11 @@ A simple and intuitive command-line task manager to manage your to-dos effective
    git clone https://github.com/sgotluru/task_tracker.git
    cd task_tracker
    ```
-2. Install the package
+2. Install runtime dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3. Install the package
     ```bash
     pip install .
     ```
@@ -30,12 +36,7 @@ A simple and intuitive command-line task manager to manage your to-dos effective
 ## Usage
 After installation, you can use the `tasktkr` command to manage your tasks.
 
-### Command-line Options
-To see all available commands and usage instructions, run:
-```bash
-tasktkr -h
-```
-### Examples
+### Examples :
 #### Help Command
 To see all available commands and options, run:
 ```bash
@@ -46,14 +47,18 @@ tasktkr -h
 To add a task with the title `Buy groceries`:
 ```bash
 tasktkr add "Buy groceries"
+Task 'Buy groceries' added successfully with ID: 1
 ```
 
 #### List Tasks
 To view tasks filtered by status:
 ```bash
 tasktkr list --status todo  # List tasks with the status "todo"
+ID: 1, Title: Buy groceries, Status: todo
 tasktkr list --status all   # List all tasks
+ID: 1, Title: Buy groceries, Status: todo
 ```
+
 
 #### Update a Task
 To update a task's title or status by ID:
@@ -69,10 +74,18 @@ tasktkr delete 1
 ```
 
 ## File Storage
-By default, tasks are stored in a file located in the same directory. The file path is platform-specific:
+By default, tasks are stored in the user's home directory:
 
 - **Linux/Mac**: `~/.taskmanager/tasks.json`
 - **Windows**: `C:\Users\<username>\.taskmanager\tasks.json`
+
+Additionally, the `config.yaml` file is created at:
+
+- **Linux/Mac**: `~/.taskmanager/config.yaml`
+- **Windows**: `C:\Users\<username>\.taskmanager\config.yaml`
+
+This file stores the path to `tasks.json` and other configuration settings. If you'd like to reset or back up your tasks, you can manually manage these files.
+
 
 ### Why This Location?
 Storing tasks in the user's home directory ensures:
@@ -87,16 +100,25 @@ If you'd like to reset or back up your tasks, you can manually manage the `tasks
 ## Development
 If you want to modify or contribute to the project:
 1. Clone the repository as described above.
-2. Install the package in development mode:
+2. Install development dependencies:
+    ```bash
+    pip install -r requirements-dev.txt
+    ```
+3. Install the package in development mode:
     ```bash
     pip install -e .
     ```
-3. Run the CLI using:
+4. Run the CLI using:
     ```bash
     python -m utils.cli
     ```
-## Contributing 
+## Contributing
 Contributors are welcome! Please fork the repository, create a feature branch, and submit a pull request.
+
+To ensure quality, run tests using:
+```bash
+pytest
+```
 
 ## License
 This project is licensed under the MIT License. See `LICENSE` file for details.
