@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'  # Adjust based on your project's requirements
+        python-version: '3.12'  # Adjust based on your project's requirements
 
     - name: Install dependencies
       run: |
