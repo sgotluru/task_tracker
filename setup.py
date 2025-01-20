@@ -26,6 +26,7 @@ setuptools.setup(
     ],
     install_requires=[
         "PyYAML>=6.0",
+        "tabulate>=0.9.0",
         ],
     include_package_data=True,
     license="MIT",
