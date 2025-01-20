@@ -1,7 +1,7 @@
 # Task Manager CLI
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Python: 3.6+](https://img.shields.io/badge/Python-3.6%2B-blue)
+![Python: 3.12+](https://img.shields.io/badge/Python-3.12%2B-blue)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/sgotluru/task_tracker/ci.yml?branch=main)
 ![GitHub Stars](https://img.shields.io/github/stars/sgotluru/task_tracker?style=social)
 
@@ -14,7 +14,7 @@ A simple and intuitive command-line task manager to manage your to-dos effective
 - List tasks filtered by status (`todo`, `in-progress`, `done`, or `all`).
 
 ## Requirements
-- Python 3.6 or higher.
+- Python 3.12 or higher.
 - `pip` (Python package manager) installed.
 
 ## Installation
